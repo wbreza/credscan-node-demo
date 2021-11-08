@@ -1,0 +1,20 @@
+{
+  "name": "credscan-node-demo",
+  "version": "1.0.0",
+  "description": "Example repo that leverages secret and credential scanning.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbreza/credscan-node-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wbreza/credscan-node-demo/issues"
+  },
+  "homepage": "https://github.com/wbreza/credscan-node-demo#readme"
+}
