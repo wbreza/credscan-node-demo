@@ -9,7 +9,7 @@ cd "$parent_path"
 
 echo -n 'Creating python virtual environment...'
 python -m venv ../venv
-. ../venv/Scripts/activate
+. ../venv/bin/activate
 echo 'done'
 
 echo -n 'Installing repo dependencies...'

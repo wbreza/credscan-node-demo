@@ -7,6 +7,12 @@ This repo is configured to detect secrets at multiple levels
 1. At development time via git pre-commit hooks
 1. At review time via Github actions for all pull requests
 
+## Prerequisites
+
+The following components are required to be pre-installed
+
+1. [Python version >= 3.10.0](https://www.python.org/downloads/)
+
 ## Setup
 
 Git pre-commit hooks require setup before they can start working as designed.
