@@ -1,21 +1,33 @@
 # Security Policy
 
-## Supported Versions
+## Secret Detection
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+This repo is configured to detect secrets at multiple levels
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+1. At development time via git pre-commit hooks
+1. At review time via Github actions for all pull requests
 
-## Reporting a Vulnerability
+## Setup
 
-Use this section to tell people how to report a vulnerability.
+Git pre-commit hooks require setup before they can start working as designed.
+To streamline this process run the following:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+```bash
+bash ./scripts/init-repo.sh
+```
+
+The `init-repo.sh` script performs the following:
+
+1. Creates and activates a Python virtual environment
+1. Installs python package dependencies via pip
+   - [pre-commit](https://github.com/pre-commit/pre-commit) - For git pre-commit hook framework
+   - [detect-secrets](https://github.com/Yelp/detect-secrets) - Package developed by Yelp! for secret detection
+1. Configures pre-commits hooks from the `.pre-commit-config.yaml` config file.
+1. Runs all hooks to create an initial baseline check
+
+## Running Secret Scanning
+
+After following the [setup](#Setup) section secret scanning will automatically run before all local commits.
+If a secret is detected it will fail your commit and alert you of the detected secrets.
+
+For more information of configuring secret detection review the [usage](https://github.com/Yelp/detect-secrets#usage) guidelines in the detect-secrets repo.
